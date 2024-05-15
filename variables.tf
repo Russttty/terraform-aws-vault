@@ -4,7 +4,7 @@
 variable "vault_name" {
   description = "The name of the vault cluster in 3 to 5 characters. Changes in runtime would re-deploy a new cluster, data from the old cluster would be lost."
   type        = string
-  default     = "unset"
+  default     = "tutorialinuxplayground2"
   validation {
     condition     = length(var.vault_name) >= 3 && length(var.vault_name) <= 5
     error_message = "Please use a minimum of 3 and a maximum of 5 characters."
@@ -149,6 +149,7 @@ variable "vault_asg_instance_lifetime" {
 variable "vault_aws_certificate_arn" {
   description = "The ARN to an existing certificate."
   type        = string
+  default = "tutorialinuxplayground2"
   validation {
     condition     = can(regex("^arn:aws:acm:", var.vault_aws_certificate_arn))
     error_message = "Please specify a valid ARN, starting with \"arn:aws:acm:\"."
